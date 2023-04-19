@@ -1,6 +1,4 @@
-import React from 'react'
-
-import '../styles/App.css';
+import React, { useState } from 'react';
 
 const data = {
   '2018': [
@@ -14,7 +12,7 @@ const data = {
     'Fast and Furious 8'
   ],
   '2020': [
-    'Final Avengers Movie(Iron man dies)',
+    'Final Avengers Movie (Iron man dies)',
     'Now you finally used Lenskart',
     'Covid Came'
   ],
@@ -25,7 +23,8 @@ const data = {
     'Adventures of Saiman',
     'Adventures of Shaktiman'
   ]
-}
+};
+
 const App = () => {
   const [selectedYear, setSelectedYear] = useState(null);
 
@@ -58,6 +57,5 @@ const App = () => {
     </div>
   );
 };
-
 
 export default App;
