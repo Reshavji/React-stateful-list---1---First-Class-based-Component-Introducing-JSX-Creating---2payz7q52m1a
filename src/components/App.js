@@ -27,13 +27,37 @@ const data = {
   ]
 }
 const App = () => {
+  const [selectedYear, setSelectedYear] = useState(null);
+
+  const handleYearChange = (event) => {
+    const year = event.target.value;
+    setSelectedYear(year);
+  };
 
   return (
     <div id="main">
-      
+      <h1>Movie List</h1>
+      <select value={selectedYear} onChange={handleYearChange}>
+        <option value={null}>No year selected</option>
+        {Object.keys(data).map((year) => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
+      <div id="selected-year">
+        {selectedYear ? `Selected year: ${selectedYear}` : 'No year selected'}
+      </div>
+      {selectedYear && (
+        <ul>
+          {data[selectedYear].map((movie, index) => (
+            <li key={index}>{movie}</li>
+          ))}
+        </ul>
+      )}
     </div>
-  )
-}
+  );
+};
 
 
 export default App;
